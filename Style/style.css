@@ -38,12 +38,14 @@ h1 {
 
 .search-box {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 30px;
 }
 
 #cityInput {
   flex: 1;
+  min-width: 200px;
   padding: 15px 20px;
   border: 2px solid #e0e0e0;
   border-radius: 50px;
@@ -52,13 +54,9 @@ h1 {
   transition: all 0.3s ease;
 }
 
-#cityInput:focus {
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-}
-
 #searchBtn {
-  padding: 15px 30px;
+  flex: 0 0 auto;
+  padding: 15px 25px;
   background: linear-gradient(135deg, #3b82f6 0%, #9333ea 100%);
   color: white;
   border: none;
@@ -67,6 +65,8 @@ h1 {
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.3s ease;
   font-weight: 600;
+  width: 100%;
+  max-width: 150px;
 }
 
 #searchBtn:hover {
@@ -187,4 +187,15 @@ h1 {
   font-size: 1.3em;
   color: #333;
   font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  .search-box {
+    flex-direction: column;
+  }
+
+  #cityInput,
+  #searchBtn {
+    width: 100%;
+  }
 }
